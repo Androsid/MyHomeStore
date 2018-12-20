@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { GoodsComponent } from './goods/goods.component';
 import { DetailsComponent } from './details/details.component';
@@ -19,7 +18,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     CatalogComponent,
     GoodsComponent,
     DetailsComponent,
