@@ -1,0 +1,22 @@
+<div style="height: 100px; display: flex; justify-content: center; align-items: center;">Category {{categoryName}} {{categoryId}}</div>
+
+<div class="table-responsive">
+    <table class="table table-striped table-dark">
+        <thead>
+            <th>id:</th>
+            <th>Name:</th>
+            <th>Price:</th>
+            <th>Qty:</th>
+        </thead>
+        <tr *ngFor="let events of goods" (click)="clickedRow(events)">
+            <td>{{events.id}}</td>
+            <td>{{events.name}}</td>
+            <td>{{events.price}}</td>
+            <td>{{events.Qty}}</td>
+        </tr>
+    </table>
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [pageSize]="itemsPerPage"
+        [(page)]="page" [boundaryLinks]="false" (pageChange)="onPageChanged($event)"></ngb-pagination>
+
+
+</div>

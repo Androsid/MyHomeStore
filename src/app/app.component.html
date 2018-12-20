@@ -1,0 +1,15 @@
+<div style="display: flex; height: 100%;">
+  <div>
+    <app-catalog 
+    (clickCategoryName)="onAClicked($event)" 
+    (clickCategoryId)="onAClickedCategoryId($event)"
+    (eventUpdateTableFromCatalog)="goodsComponent.loadPage($event)"
+    ></app-catalog>
+  </div>
+  <div style="flex-grow: 1;">
+    <app-goods #goodsComponent [categoryName]="categoryName" [categoryId]="categoryId"></app-goods>
+  </div>
+  <div style="flex-grow: 1;">
+    <app-details (eventUpdateTableFromDetails)="goodsComponent.loadPage()" [categoryId]="categoryId"></app-details>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+
+    <ul class="treecomponents">
+        <li *ngFor="let tree of SendTrees" class="treecomponent">
+            <i 
+            class="btn btn-outline-primary btn-block glyphicon glyphicon-{{tree.isExpanded ? 'minus' : 'plus'}}"
+            
+            (click)="onExpand(tree)"></i>
+            <div class="nodeinfo">
+
+            <span (click)="onExpand(tree)">
+                    {{tree.categoryName}}
+                    </span>
+
+            <tree-view [SendTrees]="tree.trees" [SelectedNode]="SelectedNode" (onSelectedChanged)="onSelectNode($event)" (onRequestNodes)="onRequestLocal($event)" *ngIf="tree.isExpanded">
+            </tree-view>
+            </div>
+        </li>
+    </ul>

@@ -1,0 +1,20 @@
+<div style="height: 100px; display: flex; justify-content: center; align-items: center;">Details</div>
+<div style="display:flex; flex-direction: column; margin: 0 50px;">
+  <label>name:
+  <input #goodName />
+  </label>
+  <label>price:
+    <input #goodPrice />
+  </label>
+  <label>categoryId:
+    <input #goodCategoryId value="{{categoryId}}"/>
+  </label>
+  <label>Qty:
+    <input #goodQty />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="addGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value); goodName.value=''">
+    <!--<button (click)="addGood('treee'+ 1 + 2 + 3); goodName.value=''">-->
+    add
+  </button>
+</div>
