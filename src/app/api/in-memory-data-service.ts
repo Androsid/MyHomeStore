@@ -56,7 +56,35 @@ export class InMemoryDataService implements InMemoryDbService{
             "name": "Hat red",
             "price": 70,
             "categoryId": 4,
-            "Qty": 10
+            "Qty": 12
+          },
+          {
+            "id": 8,
+            "name": "Coat red",
+            "price": 70,
+            "categoryId": 1,
+            "Qty": 23
+          },
+          {
+            "id": 9,
+            "name": "Coat new",
+            "price": 70,
+            "categoryId": 1,
+            "Qty": 6
+          },
+          {
+            "id": 10,
+            "name": "Coat dirty",
+            "price": 10,
+            "categoryId": 1,
+            "Qty": 3
+          },
+          {
+            "id": 11,
+            "name": "Coat second hand",
+            "price": 70,
+            "categoryId": 1,
+            "Qty": 20
           }
 
     ]

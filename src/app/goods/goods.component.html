@@ -1,30 +1,32 @@
 <div style="height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <div>Category {{categoryName}} {{categoryId}}</div>
-    <div>Save. Cancel</div>
+    <button *ngIf="true == false" class="button">Delete</button>
 </div>
 
-  <!-- Загрузочный спиннер -->
-  <div class="spinner-container" *ngIf="resourcesLoaded === false">
+<!-- Загрузочный спиннер -->
+<div class="spinner-container" *ngIf="resourcesLoaded === false">
     <mat-spinner></mat-spinner>
-  </div>
-  
+</div>
+
 <div class="table-responsive">
-    <table class="table table-striped table-dark"> <!-- table-hover -->
+    <table class="table table-dark">
+        <!-- table-hover -->
         <thead>
             <th>id:</th>
+            <th></th>
             <th>Name:</th>
             <th>Price:</th>
             <th>Qty:</th>
         </thead>
-        <tr *ngFor="let events of goods" (click)="clickedRow(events)">
+        <tr *ngFor="let events of goods" (click)="editRow(events)">
             <td>{{events.id}}</td>
+            <td><img src="assets/images/coat1.jpg" style="width:50px;"></td>
             <td>{{events.name}}</td>
             <td>{{events.price}}</td>
             <td>{{events.Qty}}</td>
+            <td class="close" (click)="deleteRow(events)"></td>
         </tr>
     </table>
-    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [pageSize]="itemsPerPage"
-        [(page)]="page" [boundaryLinks]="false" (pageChange)="onPageChanged($event)"></ngb-pagination>
-
-
 </div>
+<ngb-pagination class="d-flex justify-content-center" [collectionSize]="collectionSize" [pageSize]="itemsPerPage"
+    [(page)]="page" [boundaryLinks]="false" (pageChange)="onPageChanged($event)"></ngb-pagination>

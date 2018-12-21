@@ -34,6 +34,15 @@ export class SimulateDbService {
       );
   }
 
+  deleteGood(good: Goods) {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    const url = `${this.simDbsUrl}/${good.id}`;
+
+    return this.httpClient.delete<Goods>(url).pipe(catchError(this.handleError('deleteGoods', [])));
+  }
+
   public getPageItems(simDbsUrl: Observable<TablePage>, page: number, itemsPerPage: number, categoryId: number): Observable<TablePage>{
     return simDbsUrl.pipe(
       map(u => {

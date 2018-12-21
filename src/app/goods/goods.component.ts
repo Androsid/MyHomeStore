@@ -38,8 +38,13 @@ export class GoodsComponent implements OnInit {
     this.loadPage();
   }
 
-  clickedRow(events){
-    console.log(events);
+  deleteRow(good){
+    this.goods = this.goods.filter(h => h !== good);
+    this.simulateDbService.deleteGood(good).subscribe();
+    this.loadPage();
+  }
+  editRow(good){
+    console.log(good);
   }
 
   private loadPage(){

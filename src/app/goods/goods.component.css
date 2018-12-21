@@ -11,3 +11,52 @@
     margin: 95px auto 0 auto;
 }
 
+tr:hover{
+    background-color: gray;
+}
+
+.close {
+    position: absolute;
+    right: auto;
+    top: auto;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 4px;
+    background-color: red;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    background-color: red;
+    border: none;
+    border-radius: 15px;
+    width: 35%;
+    color: #fff;
+  }
+  .button:hover {background-color: darkgrey}
+  .button:active {
+    background-color: gray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
