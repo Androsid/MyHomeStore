@@ -1,0 +1,13 @@
+.spinner-container {
+    height: 340px;
+    width: 390px;
+    position: fixed;
+    background: transparent;
+    margin-top: 70px;
+    z-index: 1;
+}
+
+.spinner-container mat-spinner {
+    margin: 95px auto 0 auto;
+}
+

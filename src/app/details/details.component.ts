@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SimulateDbService } from '../simulate-db.service';
 import { Goods } from '../goods/goods';
-import { GoodsComponent } from '../goods/goods.component';
 
 @Component({
   selector: 'app-details',

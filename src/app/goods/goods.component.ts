@@ -21,12 +21,13 @@ export class GoodsComponent implements OnInit {
   filteredGoods: Goods[];
 
   public itemsPerPage: number = 5;
-  resourcesLoaded = false;
+  resourcesLoaded: boolean;
 
   constructor(private simulateDbService: SimulateDbService) {
     this.page = 1;
     this.loadPage();
     console.log("GoodsComponent " + this.categoryId);
+    
    }
 
   ngOnInit() {
@@ -42,11 +43,12 @@ export class GoodsComponent implements OnInit {
   }
 
   private loadPage(){
+    this.resourcesLoaded = false;
     this.simulateDbService.getCategories(this.page, this.itemsPerPage, this.categoryId)
     .subscribe(p => {
       this.goods = p.rows;
       this.collectionSize = p.totalCount;
-
+      this.resourcesLoaded = true;
     });
   }
 

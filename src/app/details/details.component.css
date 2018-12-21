@@ -1,0 +1,20 @@
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    background-color: royalblue;
+    border: none;
+    border-radius: 15px;
+    width: 25%;
+    color: #fff;
+  }
+  
+  .button:hover {background-color: darkgrey}
+  
+  .button:active {
+    background-color: gray;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }

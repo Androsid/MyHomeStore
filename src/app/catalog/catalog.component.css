@@ -1,51 +1,61 @@
 .wrapper{
-    margin: 0 50px;
-    width: 300px;
-  }
-  body, a{
-    color:#fff
-  }
-  input[type="checkbox"]{
-    display:none;
-  }
-  ul{
-    list-style: none;
-    padding: 0px;
-    margin: auto;
-  }
-  li a, ul label{
-    display: block;
-    width: 300px;
-    height: 55px;
-    line-height: 55px;
-    box-sizing: border-box;
-    text-decoration: none;
-  }
-  ul label{
-      padding-left: 20px;
-      margin-bottom: 0;
-  }
-  li a{
-      padding-left: 50px;
-  }
-  input~ul{
-    opacity: 0;
-    height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease-in-out; 
-  }
-  input[type="checkbox"]:checked~ul{
-    opacity:1;
-    height: auto;
-  }
-  ul .tree{
-    padding-left: 10px;
-  }
-  .tree label{
-    background: darkgrey;
-    border-bottom: 1px solid #ebebeb;
-  }
+  margin: 0 50px;
+  width: auto;
+}
+body, a{
+  color:#fff
+}
+input[type="checkbox"]{
+  display:none;
+}
+ul{
+  list-style: none;
+  padding: 0px;
+  margin: auto;
+}
+li a, ul label{
+  display: block;
+  width: 300px;
+  height: 55px;
+  line-height: 55px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+ul label{
+    padding-left: 20px;
+    margin-bottom: 0;
+}
+li a{
+    padding-left: 50px;
+}
+input~ul{
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out; 
+}
+input[type="checkbox"]:checked~ul{
+  opacity:1;
+  height: auto;
+}
+ul .tree{
+  padding-left: 40px;
+}
 
-  ul>li{
-    background: lightgrey;
-  }
+.tree label:hover{
+  border-right: 4px solid royalblue;
+  background: lightgrey;
+}
+.tree label{
+  background: whitesmoke;
+  border-bottom: 1px solid #ebebeb;
+  width: auto;
+}
+
+input[type="checkbox"]:checked~label{
+  border-right: 2px solid  dodgerblue;
+}
+
+ul>li{
+  background: white;
+}
