@@ -18,3 +18,17 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
   }
+
+ 
+  .image-upload-container {
+    cursor: pointer;
+  }
+
+
+  
+  .btn-bwm {
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+  }
+  

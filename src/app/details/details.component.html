@@ -4,25 +4,43 @@
     <span>Foto</span>
     <img src="assets/images/shoes1.jpg" style="width:100px;">
     <button class="btn btn-success">Upload</button>
+
+    <label class="image-upload-container btn btn-bwm">
+      <span>Select Image</span>
+      <input #imageInput
+             type="file"
+             accept="image/*"
+             (change)="processFile(imageInput)">
+    </label>
   </div>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="name" value="" #goodName>
+    <input type="text" required matInput placeholder="name" value="" #goodName>
+
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="price" value="" #goodPrice>
+    <input type="number" min="0" required matInput placeholder="price" value="" #goodPrice>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="categoryId" #goodCategoryId value="{{categoryId}}">
+    <input type="number" min="0" required matInput placeholder="categoryId"
+     #goodCategoryId value="{{categoryId}}">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Qty" value="" #goodQty>
+    <input type="number" min="0" [formControl]="Qty" required matInput placeholder="Qty"
+     value="" #goodQty>
+    <mat-error *ngIf="Qty.invalid">You must enter a value</mat-error>
   </mat-form-field>
 
   <div style="display: flex;justify-content: center;">
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button class="button" (click)="addGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value); goodName.value=''">
-      <!--<button (click)="addGood('treee'+ 1 + 2 + 3); goodName.value=''">-->
+    <!-- (click) passes input value to addGood() and then clears the goodName -->
+    <button class="btn btn-labeled btn-success" 
+    (click)="addGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value); goodName.value=''"
+      type="submit" 
+      [disabled]="goodPrice.value == '' || goodCategoryId.value == '' || goodQty.value == '' || goodName.value==''">
       Add
+    </button>
+    <button class="btn btn-labeled btn-danger" 
+    (click)="goodPrice.value = ''; goodCategoryId.value = ''; goodQty.value = ''; goodName.value=''">
+      Cancel
     </button>
   </div>
 </div>

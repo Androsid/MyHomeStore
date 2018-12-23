@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SimulateDbService } from '../simulate-db.service';
 import { Goods } from '../goods/goods';
+import { FormControl, Validators } from '@angular/forms'; // need to import ReactiveFormsModule
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -16,13 +18,15 @@ export class DetailsComponent implements OnInit {
   public goods: Goods[];
   public simDbsUrl: Array<any>;
 
-  constructor(private simulateDbService: SimulateDbService) {
+  constructor(private simulateDbService: SimulateDbService, private http: HttpClient) {
     console.log("DetailsComponent constructor");
   }
 
   ngOnInit() {
     this.getGoods();
   }
+  Qty = new FormControl('', [Validators.required]);
+
 
   newgood = {
     name: "xz",
@@ -45,5 +49,21 @@ export class DetailsComponent implements OnInit {
   getGoods(): void {
     this.simulateDbService.getGoods()
     .subscribe(good => this.goods = good);
+  }
+
+
+  selectedFile : File = null;
+  onFileSelected(event){
+    this.selectedFile = <File> event.target.files[0];
+  }
+
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('http://localhost:3000/upload', fd)
+      .subscribe(res => {
+        console.log(res);
+      });
+
   }
 }
