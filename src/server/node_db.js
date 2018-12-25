@@ -1,23 +1,24 @@
-const express = require('express');
-const upload = require('./upload');
-const cors = require('cors');
+var JsonDB = require('node-json-db');
 
-const server = express();
+module.exports = function node_db(req, res) {
+var db = new JsonDB("simDb", true, false);
 
-var corsOptions = {
-  origin: '*',
-  optionsSuccessStatus: 200
-};
+db.push({
+    "id": 1,
+    "name": "Coat Blue",
+    "price": 60,
+    "categoryId": 1,
+    "Qty": 10
+  },
+  {
+    "id": 2,
+    "name": "Coat red",
+    "price": 70,
+    "categoryId": 1,
+    "Qty": 10
+  }, false);
 
-server.use(cors(corsOptions));
 
-server.post('/upload', upload);
-server.get('/upload', function(req, res){
-  //res.send('I am alive!');
-  res.end('file catcher example');
-});
-
-server.get('/simDb', function(req, res){
   let simDb = [
       
     {
@@ -98,9 +99,5 @@ server.get('/simDb', function(req, res){
       "Qty": 20
     }
 ]
-  res.send(simDb);
-});
 
-server.listen(3000, () => {
-  console.log('Server started!');
-});
+}

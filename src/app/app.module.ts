@@ -19,6 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UploadImageService } from './shared/upload-image.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -38,11 +40,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     MatFormFieldModule,
     //remove this after real API done
-    HttpClientInMemoryWebApiModule.forRoot(
+/*     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ) */
   ],
-  providers: [SimulateDbService],
+  providers: [SimulateDbService, UploadImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

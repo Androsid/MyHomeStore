@@ -4,4 +4,5 @@ export class Goods {
     categoryId: number;
     Qty: number;
     id?: number;
+    url?: string;
   }

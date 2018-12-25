@@ -12,7 +12,8 @@ export class SimulateDbService {
     private httpClient: HttpClient
   ) { }
 
-  private simDbsUrl = "api/simDb";
+  //private simDbsUrl = "api/simDb"; - fake. simulate
+  private simDbsUrl = "http://localhost:3000/simDb";
 
   public getCategories(page: number, itemsPerPage: number, categoryId: number): Observable<TablePage>{
     var simDbsUrl = this.httpClient.get<TablePage>(this.simDbsUrl);
