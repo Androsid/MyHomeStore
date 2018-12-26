@@ -17,11 +17,12 @@ app.use(function (req, res, next) {
 var storage = multer.diskStorage({
     // destination of the file
     destination: function (req, file, cb) {
-        cb(null, 'src/assets/images/')
+        cb(null, 'uploads');
     },
     // rename file
     filename: function (req, file, cb) {
-        cb(null, file.originalname);
+        //cb(null, file.originalname);
+        cb(null, file.fieldname + '-' + Date.now() + '.' + path.extname(file.originalname));
     },
     path: function (req, file, cb) {
         cb(null, 'assets/images/' + file.originalname);
@@ -31,7 +32,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 //POST file into directory
-app.post("/upload", upload.array("uploads[]", 12), function (req, res) {
+app.post("/upload", upload.array("uploads", 12), function (req, res) {
     console.log('files', req.files);
     res.send(req.files);
 });

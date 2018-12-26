@@ -68,12 +68,12 @@ export class DetailsComponent implements OnInit {
     const formData: any = new FormData();
     const files: File = this.filesToUpload;
 
-    formData.append("uploads[]", files[0], files[0]['name']);
+    formData.append("uploads", files[0], files[0]['name']);
     
     this.http.post('http://localhost:3000/upload', formData)
       .subscribe(files => {
         console.log('files ', files);
-        this.newgood.url = '/assets/images/' + files[0].filename; //вот тут присваиваем путь к картинке
+        this.newgood.url = 'uploads/' + files[0].filename; //вот тут присваиваем путь к картинке
         //this.newgood.url = files[0].path; //вот тут присваиваем путь к картинке
         this.imageUploaded = true;
       })
@@ -88,6 +88,6 @@ export class DetailsComponent implements OnInit {
       this.imageUrl = event.target.result;
     }
     reader.readAsDataURL(fileInput.target.files.item(0));
-    //this.upload();
+    this.upload();
   }
 }
