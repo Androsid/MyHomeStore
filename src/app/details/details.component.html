@@ -37,7 +37,7 @@
   <div style="display: flex;justify-content: center;">
     <!-- (click) passes input value to addGood() and then clears the goodName -->
     <button class="btn btn-labeled btn-success" (click)="addGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value); goodName.value=''"
-      type="submit" [disabled]="goodPrice.value == '' || goodCategoryId.value == '' || goodQty.value == '' || goodName.value==''">
+      type="submit" [disabled]="goodPrice.value == '' || goodCategoryId.value == '' || goodQty.value == '' || goodName.value=='' || imageUploaded === false">
       Add
     </button>
     <button class="btn btn-labeled btn-danger" (click)="goodPrice.value = ''; goodCategoryId.value = ''; goodQty.value = ''; goodName.value=''">

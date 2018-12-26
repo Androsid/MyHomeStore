@@ -39,7 +39,7 @@ export class GoodsComponent implements OnInit {
   }
 
   deleteRow(good){
-    this.goods = this.goods.filter(h => h !== good);
+    this.goods = this.goods.filter(g => g !== good);
     this.simulateDbService.deleteGood(good).subscribe();
     this.loadPage();
   }

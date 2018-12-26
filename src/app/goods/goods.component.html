@@ -17,7 +17,7 @@
         </thead>
         <tr *ngFor="let events of goods" (click)="editRow(events)">
             <td>{{events.id}}</td>
-            <td><img src="assets/images/coat1.jpg" style="width:50px;"></td>
+            <td><img src="{{events.url}}" style="height:50px;"></td>
             <td>{{events.name}}</td>
             <td>{{events.price}}</td>
             <td>{{events.Qty}}</td>
