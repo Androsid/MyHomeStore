@@ -19,7 +19,7 @@
             <td>{{events.id}}</td>
             <td><img src="{{events.url}}" style="height:75px;"></td>
             <td>{{events.name}}</td>
-            <td>{{events.price}}</td>
+            <td>{{events.price | currency:'USD'}} </td>
             <td>{{events.Qty}}</td>
             <td class="close" (click)="deleteRow(events)"></td>
         </tr>

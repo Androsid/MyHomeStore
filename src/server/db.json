@@ -122,30 +122,6 @@
       "id": 27
     },
     {
-      "name": "aaa2",
-      "price": "2",
-      "categoryId": "3",
-      "Qty": "2",
-      "url": "uploads/uploads-1545900273844..png",
-      "id": 29
-    },
-    {
-      "name": "aa4",
-      "price": "2",
-      "categoryId": "3",
-      "Qty": "2",
-      "url": "uploads/uploads-1545900273844..png",
-      "id": 30
-    },
-    {
-      "name": "aaa5",
-      "price": "2",
-      "categoryId": "3",
-      "Qty": "2",
-      "url": "uploads/uploads-1545900273844..png",
-      "id": 31
-    },
-    {
       "name": "dgsg",
       "price": "2",
       "categoryId": "3",
@@ -184,6 +160,14 @@
       "Qty": "2",
       "url": "uploads/uploads-1545900772870..jpg",
       "id": 36
+    },
+    {
+      "name": "fdssa",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "3",
+      "url": "uploads/uploads-1545908974341..jpg",
+      "id": 37
     }
   ]
 }
