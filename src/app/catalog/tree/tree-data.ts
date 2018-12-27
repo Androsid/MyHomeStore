@@ -52,6 +52,7 @@ export const treesConst: ITreeviewComponent[] = [
                     {
                         "leaf": false,
                         "categoryName": "Коньки",
+                        "categoryId": "6",
                         "trees": []
                     }]
             },

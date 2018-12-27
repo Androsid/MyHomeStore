@@ -16,9 +16,9 @@ export class SimulateDbService {
   private simDbsUrl = "http://localhost:3001/events";
 
   public getCategories(page: number, itemsPerPage: number, categoryId: number): Observable<TablePage>{
-    var simDbsUrl = this.httpClient.get<TablePage>(this.simDbsUrl);
+    var simDbsUrl = this.httpClient.get<TablePage>(this.simDbsUrl); //получаем весь массив данных
     console.log("getCategories categoryId " + categoryId);
-    return this.getPageItems(simDbsUrl, page, itemsPerPage, categoryId);
+    return this.getPageItems(simDbsUrl, page, itemsPerPage, categoryId); //возвращяем уже отфильтрованный массив с нужными данными для пагинации
   }
 
   addGood (good: Goods): Observable<Goods> {
@@ -50,7 +50,7 @@ export class SimulateDbService {
         var startIndex = itemsPerPage * (page -1);
         console.log("getPageItems categoryId " + categoryId);
 
-        let filteredArray = this.arrfilter(u, categoryId);
+        let filteredArray = this.arrfilter(u, categoryId); //фильтруем по категориям сразу
 
         return new TablePage(filteredArray.length, filteredArray.slice(startIndex, startIndex + itemsPerPage));
       })
@@ -67,8 +67,6 @@ export class SimulateDbService {
  
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
- 
-
  
       // Let the app keep running by returning an empty result.
       return of(result as T);

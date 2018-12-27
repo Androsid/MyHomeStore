@@ -21,8 +21,8 @@
       "name": "Одежда для спорта и танцев"
     },
     {
-      "name": "Одежда, обувь, аксессуары",
-      "id": 11
+      "id": 6,
+      "name": "Коньки"
     }
   ],
   "events": [
@@ -43,100 +43,11 @@
       "url": "assets\\images\\coat1.jpg"
     },
     {
-      "id": 3,
-      "name": "Coat green",
-      "price": 70,
-      "categoryId": 1,
-      "Qty": 10
-    },
-    {
-      "id": 4,
-      "name": "Sled Blue",
-      "price": 70,
-      "categoryId": 2,
-      "Qty": 10
-    },
-    {
-      "id": 5,
-      "name": "Sled dirty",
-      "price": 7,
-      "categoryId": 2,
-      "Qty": 10
-    },
-    {
       "id": 7,
       "name": "Hat red",
       "price": 70,
       "categoryId": 4,
       "Qty": 12
-    },
-    {
-      "id": 8,
-      "name": "Coat red",
-      "price": 70,
-      "categoryId": 1,
-      "Qty": 23
-    },
-    {
-      "id": 9,
-      "name": "Coat new",
-      "price": 70,
-      "categoryId": 1,
-      "Qty": 6
-    },
-    {
-      "id": 10,
-      "name": "Coat dirty",
-      "price": 10,
-      "categoryId": 1,
-      "Qty": 3
-    },
-    {
-      "id": 11,
-      "name": "Coat second hand",
-      "price": 70,
-      "categoryId": 1,
-      "Qty": 20
-    },
-    {
-      "name": "nw",
-      "price": "12",
-      "categoryId": "1",
-      "Qty": "12",
-      "url": "",
-      "id": 12
-    },
-    {
-      "name": "coat2",
-      "price": "1",
-      "categoryId": "1",
-      "Qty": "12",
-      "url": "",
-      "id": 13
-    },
-    {
-      "name": "faf",
-      "price": "23",
-      "categoryId": "1",
-      "Qty": "321",
-      "url": "",
-      "id": 14
-    },
-    {
-      "name": "sled3",
-      "price": "12",
-      "categoryId": "1",
-      "Qty": "2",
-      "url": "",
-      "id": 15
-    },
-    {
-      "name": "21",
-      "price": "32",
-      "categoryId": "1",
-      "Qty": "3",
-      "url": "",
-      "id": 16
     },
     {
       "name": "name2",
@@ -179,14 +90,6 @@
       "id": 22
     },
     {
-      "name": "FAF",
-      "price": "2",
-      "categoryId": "3",
-      "Qty": "32",
-      "url": "uploads/uploads-1545845859078..jpg",
-      "id": 23
-    },
-    {
       "name": "dad",
       "price": "212",
       "categoryId": "3",
@@ -201,6 +104,86 @@
       "Qty": "31",
       "url": "uploads/uploads-1545846172819..jpg",
       "id": 25
+    },
+    {
+      "name": "Retro sanki",
+      "price": "1200",
+      "categoryId": "2",
+      "Qty": "1",
+      "url": "uploads/uploads-1545895002995..jpg",
+      "id": 26
+    },
+    {
+      "name": "test",
+      "price": "1",
+      "categoryId": "1",
+      "Qty": "2",
+      "url": "uploads/uploads-1545896750149..png",
+      "id": 27
+    },
+    {
+      "name": "aaa2",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900273844..png",
+      "id": 29
+    },
+    {
+      "name": "aa4",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900273844..png",
+      "id": 30
+    },
+    {
+      "name": "aaa5",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900273844..png",
+      "id": 31
+    },
+    {
+      "name": "dgsg",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900273844..png",
+      "id": 32
+    },
+    {
+      "name": "ggg",
+      "price": "2",
+      "categoryId": "3",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900273844..png",
+      "id": 33
+    },
+    {
+      "name": "fefeef",
+      "price": "3",
+      "categoryId": "2",
+      "Qty": "3",
+      "url": "uploads/uploads-1545900582878..png",
+      "id": 34
+    },
+    {
+      "name": "dd",
+      "price": "3",
+      "categoryId": "2",
+      "Qty": "3",
+      "url": "uploads/uploads-1545900582878..png",
+      "id": 35
+    },
+    {
+      "name": "Coat transparent",
+      "price": "12",
+      "categoryId": "1",
+      "Qty": "2",
+      "url": "uploads/uploads-1545900772870..jpg",
+      "id": 36
     }
   ]
 }

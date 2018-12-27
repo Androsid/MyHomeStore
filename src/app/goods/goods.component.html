@@ -1,6 +1,6 @@
 <div style="height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
     <div>Category {{categoryName}} {{categoryId}}</div>
-    <button *ngIf="true == false" class="button">Delete</button>
+    <button *ngIf="true == true" class="btn btn-labeled btn-success">New</button>
 </div>
 
 
@@ -17,7 +17,7 @@
         </thead>
         <tr *ngFor="let events of goods" (click)="editRow(events)">
             <td>{{events.id}}</td>
-            <td><img src="{{events.url}}" style="height:50px;"></td>
+            <td><img src="{{events.url}}" style="height:75px;"></td>
             <td>{{events.name}}</td>
             <td>{{events.price}}</td>
             <td>{{events.Qty}}</td>
