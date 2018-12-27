@@ -63,7 +63,7 @@ export class GoodsComponent implements OnInit {
     let emptyGood: Goods = {
       name: "",
       price: null,
-      categoryId: null,
+      categoryId: this.categoryId,
       Qty: null,
       url: "/assets/images/placeholder-image.png",
       id: null

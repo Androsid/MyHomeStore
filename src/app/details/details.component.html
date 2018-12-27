@@ -27,7 +27,7 @@
     <input type="number" min="0" required matInput placeholder="price" value="{{goodFromGoodsComponent.price}}" #goodPrice>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="number" min="0" required matInput placeholder="categoryId" #goodCategoryId value="{{categoryId}}">
+    <input type="number" min="0" required matInput placeholder="categoryId" #goodCategoryId value="{{goodFromGoodsComponent.categoryId}}">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="number" min="0" [formControl]="Qty" required matInput placeholder="Qty" value="{{goodFromGoodsComponent.Qty}}" #goodQty>
@@ -40,7 +40,7 @@
       type="submit" [disabled]="goodPrice.value == '' || goodCategoryId.value == '' || goodQty.value == '' || goodName.value=='' || imageUploaded === false">
       Add
     </button>
-    <button class="btn btn-labeled btn-danger" (click)="goodPrice.value = ''; goodCategoryId.value = ''; goodQty.value = ''; goodName.value=''">
+    <button class="btn btn-labeled btn-danger" (click)="goodPrice.value = ''; goodQty.value = ''; goodName.value=''">
       Cancel
     </button>
     <button [disabled]="goodFromGoodsComponent.id == null" class="btn btn-labeled btn-info" (click)="updateGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value)">
