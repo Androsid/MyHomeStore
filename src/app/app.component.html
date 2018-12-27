@@ -7,9 +7,9 @@
     ></app-catalog>
   </div>
   <div style="width:30%;">
-    <app-goods #goodsComponent [categoryName]="categoryName" [categoryId]="categoryId"></app-goods>
+    <app-goods #goodsComponent [categoryName]="categoryName" [categoryId]="categoryId" (goodFromGoodsComponent)="onAClickedgoodFromGoodsComponent($event)"></app-goods>
   </div>
   <div style="width:30%;">
-    <app-details (eventUpdateTableFromDetails)="goodsComponent.loadPage()" [categoryId]="categoryId"></app-details>
+    <app-details (eventUpdateTableFromDetails)="goodsComponent.loadPage()" [categoryId]="categoryId" [goodFromGoodsComponent]="goodFromGoodsComponent"></app-details>
   </div>
 </div>

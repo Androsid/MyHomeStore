@@ -15,22 +15,22 @@
       </form> -->
       
     <input type="file" #Image accept="image/*" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
-    <img [src]="imageUrl" style="width:250px;height:200px">
+    <img [src]="goodFromGoodsComponent.url" style="width:250px;height:200px">
     <!-- <button type="button" class="button" (click)="upload()">Upload</button> -->
 
   </div>
   <mat-form-field class="example-full-width">
-    <input type="text" required matInput placeholder="name" value="" #goodName>
+    <input type="text" required matInput placeholder="name" value="{{goodFromGoodsComponent.name}}" #goodName>
 
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="number" min="0" required matInput placeholder="price" value="" #goodPrice>
+    <input type="number" min="0" required matInput placeholder="price" value="{{goodFromGoodsComponent.price}}" #goodPrice>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="number" min="0" required matInput placeholder="categoryId" #goodCategoryId value="{{categoryId}}">
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="number" min="0" [formControl]="Qty" required matInput placeholder="Qty" value="" #goodQty>
+    <input type="number" min="0" [formControl]="Qty" required matInput placeholder="Qty" value="{{goodFromGoodsComponent.Qty}}" #goodQty>
     <mat-error *ngIf="Qty.invalid">You must enter a value</mat-error>
   </mat-form-field>
 
@@ -42,6 +42,9 @@
     </button>
     <button class="btn btn-labeled btn-danger" (click)="goodPrice.value = ''; goodCategoryId.value = ''; goodQty.value = ''; goodName.value=''">
       Cancel
+    </button>
+    <button [disabled]="goodFromGoodsComponent.id == null" class="btn btn-labeled btn-info" (click)="updateGood(goodName.value, goodPrice.value, goodCategoryId.value, goodQty.value)">
+      Update
     </button>
   </div>
 </div>

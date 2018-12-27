@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Goods } from './goods/goods';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,14 @@ export class AppComponent {
 
   categoryName :string = "";
   categoryId:number = 0;
+  goodFromGoodsComponent: Goods = {
+    name: "",
+    price: null,
+    categoryId: null,
+    Qty: null,
+    url: "/assets/images/placeholder-image.png",
+    id: null
+  };
 
   public onAClicked(categoryName){
     console.log(categoryName);
@@ -19,5 +28,10 @@ export class AppComponent {
   public onAClickedCategoryId(categoryId){
     console.log(categoryId);
     this.categoryId = categoryId;
+  }
+
+  onAClickedgoodFromGoodsComponent(goodFromGoodsComponent){
+    console.log("onAClickedCategoryId " + goodFromGoodsComponent);
+    this.goodFromGoodsComponent = goodFromGoodsComponent;
   }
 }

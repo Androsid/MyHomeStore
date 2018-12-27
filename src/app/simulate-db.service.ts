@@ -13,7 +13,7 @@ export class SimulateDbService {
   ) { }
 
   //private simDbsUrl = "api/simDb"; - fake. simulate
-  private simDbsUrl = "http://localhost:3001/events";
+  private simDbsUrl = "http://localhost:3001/events/";
 
   public getCategories(page: number, itemsPerPage: number, categoryId: number): Observable<TablePage>{
     var simDbsUrl = this.httpClient.get<TablePage>(this.simDbsUrl); //получаем весь массив данных
@@ -25,6 +25,12 @@ export class SimulateDbService {
     return this.httpClient.post<Goods>(this.simDbsUrl, good).pipe(
       tap((good: Goods) => console.log(`added good w/ id=${good.id}`, good)),
       catchError(this.handleError<Goods>('addGood'))
+    );
+  }
+  updateGood (good: Goods): Observable<Goods> {
+    return this.httpClient.put<Goods>(this.simDbsUrl + good.id, good).pipe(
+      tap((good: Goods) => console.log(`update good w/ id=${good.id}`, good)),
+      catchError(this.handleError<Goods>('updateGood'))
     );
   }
   getGoods (): Observable<Goods[]> {

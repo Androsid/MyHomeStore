@@ -12,6 +12,7 @@ export class GoodsComponent implements OnInit {
   @Input() categoryName: string;
   @Input() categoryId: number;
   @Output() clickCategoryId: EventEmitter<number> = new EventEmitter();
+  @Output() goodFromGoodsComponent: EventEmitter<Goods> = new EventEmitter();
 
   public page: number;
 
@@ -43,6 +44,7 @@ export class GoodsComponent implements OnInit {
   }
   editRow(good) {
     console.log(good);
+    this.goodFromGoodsComponent.emit(good);
   }
 
   private loadPage() {
@@ -55,6 +57,17 @@ export class GoodsComponent implements OnInit {
           this.resourcesLoaded = true;
         });
     }, 500); //От этого таймаута надо избавиться! Он тут временно
+  }
 
+  newGood(){
+    let emptyGood: Goods = {
+      name: "",
+      price: null,
+      categoryId: null,
+      Qty: null,
+      url: "/assets/images/placeholder-image.png",
+      id: null
+    };
+    this.goodFromGoodsComponent.emit(emptyGood);
   }
 }

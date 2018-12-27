@@ -18,7 +18,9 @@ export class DetailsComponent implements OnInit {
 
   @Input() categoryId: number;
 
-  imageUrl: string = "/assets/images/placeholder-image.png";
+  @Input() goodFromGoodsComponent: Goods;
+
+  //imageUrl: string = "/assets/images/placeholder-image.png";
   imageUploaded: boolean;
 
   public goods: Goods[];
@@ -37,7 +39,7 @@ export class DetailsComponent implements OnInit {
   Qty = new FormControl('', [Validators.required]);
 
 
-  newgood = {
+  newgood: Goods = {
     name: "xz",
     price: 24,
     categoryId: 1,
@@ -54,6 +56,28 @@ export class DetailsComponent implements OnInit {
     console.log(this.newgood);
     this.simulateDbService.addGood(this.newgood)
       .subscribe(good => this.goods.push(good));
+
+    this.eventUpdateTableFromDetails.emit(null);
+  }
+
+  updateGood(goodName, goodPrice, goodCategoryId, goodQty) {
+    let updatedgood = {
+      name: "",
+      price: null,
+      categoryId: null,
+      Qty: null,
+      url: "uploads/uploads-1545900273844..png",
+      id: null
+    };
+    updatedgood.name = goodName;
+    updatedgood.price = goodPrice;
+    updatedgood.categoryId = goodCategoryId;
+    updatedgood.Qty = goodQty;
+    updatedgood.url = this.goodFromGoodsComponent.url;
+    updatedgood.id = this.goodFromGoodsComponent.id;
+    console.log(updatedgood);
+    this.simulateDbService.updateGood(updatedgood)
+      .subscribe();
 
     this.eventUpdateTableFromDetails.emit(null);
   }
@@ -85,7 +109,8 @@ export class DetailsComponent implements OnInit {
     //Show image preview
     var reader = new FileReader();
     reader.onload = (event: any) => {
-      this.imageUrl = event.target.result;
+      //this.imageUrl
+      this.goodFromGoodsComponent.url = event.target.result;
     }
     reader.readAsDataURL(fileInput.target.files.item(0));
     this.upload();
