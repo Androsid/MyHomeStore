@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e  --port 3002 debug",
     "jsonServer": "json-server --watch src/server/db.json --port 3001",
     "storageServer": "node src/server/storage.js",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run jsonServer\" \"npm run storageServer\" "

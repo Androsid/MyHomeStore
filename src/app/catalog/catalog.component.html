@@ -5,21 +5,21 @@
 <div class="wrapper">
   <ul class="tree">
     <li *ngFor="let tree of treesData">
-      <input type="checkbox" id="node1+{{tree.categoryName}}">
-      <label for="node1+{{tree.categoryName}}">{{tree.categoryName}}</label>
+      <input type="checkbox" id="node1 {{tree.categoryName}}">
+      <label for="node1 {{tree.categoryName}}">{{tree.categoryName}}</label>
       <ul class="tree">
         <li *ngFor="let tr of tree.trees">
-          <input type="checkbox" id="node1+{{tr.categoryName}}">
-          <label for="node1+{{tr.categoryName}}">{{tr.categoryName}}</label>
+          <input type="checkbox" id="node1 {{tr.categoryName}}">
+          <label for="node1 {{tr.categoryName}}">{{tr.categoryName}}</label>
           <ul class="tree">
             <li *ngFor="let t of tr.trees">
-              <input type="checkbox" id="node2+{{t.categoryName}}">
-              <label for="node2+{{t.categoryName}}" (click)="clickMe(t.categoryName, t.categoryId)">{{t.categoryName}}</label>
+              <input type="checkbox" id="node2 {{t.categoryName}}">
+              <label for="node2 {{t.categoryName}}" (click)="clickMe(t.categoryName, t.categoryId)">{{t.categoryName}}</label>
               <!--<li><a href="#" (click)="clickMe(t.categoryName, t.categoryId)">{{t.categoryName}}</a></li>-->
               <ul class="tree">
                 <li *ngFor="let tt of t.trees">
-                  <input type="checkbox" id="node3+{{tt.categoryName}}">
-                  <label for="node3+{{tt.categoryName}}" (click)="clickMe(tt.categoryName, tt.categoryId)">{{tt.categoryName}}</label>
+                  <input type="checkbox" id="node3 {{tt.categoryName}}">
+                  <label for="node3 {{tt.categoryName}}" (click)="clickMe(tt.categoryName, tt.categoryId)">{{tt.categoryName}}</label>
                   <!--<li><a href="#" (click)="clickMe(t.categoryName, t.categoryId)">{{t.categoryName}}</a></li>-->
 
                 </li>

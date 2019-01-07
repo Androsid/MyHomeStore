@@ -1,23 +1,9 @@
 <div style="height: 100px; display: flex; justify-content: center; align-items: center;">Details</div>
 <div style="display:flex; flex-direction: column; margin: 0 50px;">
   <div>
-    <!-- <button (click)="test()">Test</button> -->
-<!--           <form #imageForm=ngForm (ngSubmit)="OnSubmit(Caption,Image)">
-        <div class="row">
-          <div class="input-field col s12">
-            <input type="text" #Caption ngModel name="Caption" id="Caption" required>
-            <label for="Caption">Caption</label>
-          </div>
-        </div>
-        <img [src]="imageUrl"  style="width:250px;height:200px">
-        <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-        <button type="submit" class="btn-large btn-submit" [disabled]="Image.value=='' || !imageForm.valid">Submit</button>
-      </form> -->
-      
     <input type="file" #Image accept="image/*" (change)="fileChangeEvent($event)" placeholder="Upload file..." />
     <img [src]="goodFromGoodsComponent.url" style="width:250px;height:200px">
     <!-- <button type="button" class="button" (click)="upload()">Upload</button> -->
-
   </div>
   <mat-form-field class="example-full-width">
     <input type="text" required matInput placeholder="name" value="{{goodFromGoodsComponent.name}}" #goodName>

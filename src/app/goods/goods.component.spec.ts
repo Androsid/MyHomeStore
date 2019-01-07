@@ -1,6 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GoodsComponent } from './goods.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule, MatInputModule, MatFormFieldModule } from '@angular/material';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SimulateDbService } from '../simulate-db.service';
+import { UploadImageService } from '../shared/upload-image.service';
 
 describe('GoodsComponent', () => {
   let component: GoodsComponent;
@@ -8,7 +16,19 @@ describe('GoodsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GoodsComponent ]
+      declarations: [ GoodsComponent ],
+      imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatProgressSpinnerModule, //this module includes the progress indicator component that we will be using to indicate that data is being loaded from the backend
+        NgbModule.forRoot(),
+        MatInputModule,
+        MatFormFieldModule
+      ],
+      providers: [SimulateDbService, UploadImageService]
     })
     .compileComponents();
   }));
@@ -19,7 +39,7 @@ describe('GoodsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -7,7 +7,6 @@ import { Goods } from './goods/goods';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'MyStore';
 
   categoryName :string = "";
   categoryId:number = 0;
