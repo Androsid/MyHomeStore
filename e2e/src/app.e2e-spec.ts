@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
 import { browser } from 'protractor';
+import { fakeAsync, tick, async } from '@angular/core/testing';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,7 +9,7 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  xit('should display text on first tree node', () => {
+  it('should display text on first tree node', () => {
     page.navigateTo();
     expect(page.getNode1OfTree().getText()).toEqual('Одежда, обувь, аксессуары');
   });
@@ -42,19 +43,19 @@ describe('workspace-project App', () => {
   it('should see in details image equal to clicked in table data', () => {
 
     page.navigateTo();
-    browser.debugger(); //NOT WORK!!???
+    //browser.debugger(); //NOT WORK!!???
     page.openTree();
 
     expect(page.isTableDataInTablePresent()).toBeTruthy();
 
     page.getImgOfTr1Td2InTableData().click();
 
-    var srcTd = page.getImgOfTr1Td2InTableData()[0];
+    var srcTd = page.getImgOfTr1Td2InTableData()[0].src;
     console.log("srcTd " + srcTd);
 
-    var srcInDetails = page.getImgOfDetailsComponent()[0];
+    var srcInDetails = page.getImgOfDetailsComponent()[0].src;
     console.log("srcInDetails " + srcInDetails);
-
+    
     expect(this.srcTd).toEqual(this.srcInDetails);
   });
 
