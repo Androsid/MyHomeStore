@@ -1,30 +1,63 @@
 {
+    //chrome://inspect/#devices
+    //node --inspect-brk ./node_modules/\@angular/cli/bin/ng e2e ./protractor.conf.js --port 4201
+    
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "name": "ng serve",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:4200/#",
             "webRoot": "${workspaceFolder}"
-          },
-          {
+        },
+        {
             "name": "ng test",
             "type": "chrome",
             "request": "launch",
             "url": "http://localhost:9876/debug.html",
             "webRoot": "${workspaceFolder}"
-          },
-          {
+        },
+        {
             "name": "ng e2e",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/node_modules/protractor/bin/protractor",
             "protocol": "inspector",
-            "args": ["${workspaceFolder}/e2e/protractor.conf.js"]
+            "args": [
+                "${workspaceFolder}/e2e/protractor.conf.js"
+            ]
+        },
+        {
+            "name": "Launch e2e Tests",
+            "type": "node",
+            "request": "launch",
+            "stopOnEntry": false,
+            "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
+            "args": [
+                "${workspaceRoot}/protractor.conf.debug.js"
+            ],
+            "preLaunchTask": "e2e-compile",
+            "cwd": "${workspaceRoot}",
+            "sourceMaps": true,
+            "outFiles": [
+                "${workspaceRoot}/out-tsc/app/*.js"
+            ]
+        },
+        {
+            "name": "TS Node",
+            "type": "node",
+            "request": "launch",
+            
+            "args": ["${workspaceFolder}/e2e/protractor.conf.js"],
+            "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
+            "sourceMaps": true,
+            "cwd": "${workspaceRoot}",
+            "protocol": "inspector"
           }
     ]
 }

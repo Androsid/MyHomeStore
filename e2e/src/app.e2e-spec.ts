@@ -40,22 +40,23 @@ describe('workspace-project App', () => {
     expect(page.getTr1Td3InTableData().getText()).toEqual('Coat transparent');
   });
 
-  it('should see in details image equal to clicked in table data', () => {
+  it('should see in details image equal to clicked in table data', async() => {
 
-    page.navigateTo();
+    await page.navigateTo();
     //browser.debugger(); //NOT WORK!!???
-    page.openTree();
+    debugger;
+    await page.openTree();
 
-    expect(page.isTableDataInTablePresent()).toBeTruthy();
+    expect(await page.isTableDataInTablePresent()).toBeTruthy();
 
-    page.getImgOfTr1Td2InTableData().click();
+    await page.getImgOfTr1Td2InTableData().click();
 
-    var srcTd = page.getImgOfTr1Td2InTableData()[0].src;
+    var srcTd = await page.getImgOfTr1Td2InTableData()[0].src;
     console.log("srcTd " + srcTd);
 
-    var srcInDetails = page.getImgOfDetailsComponent()[0].src;
+    var srcInDetails = await page.getImgOfDetailsComponent()[0].src;
     console.log("srcInDetails " + srcInDetails);
-    
+
     expect(this.srcTd).toEqual(this.srcInDetails);
   });
 
