@@ -30,28 +30,31 @@ export class AppPage {
 
   async srcTableData() {
     var srcTdatr = JSON.stringify(await this.getImgOfTr1Td2InTableData().getAttribute('src'));
-    console.log("srcTdatr " + srcTdatr);
     return srcTdatr;
   }
+  getImgOfTr1Td2InTableData() {
+    return element(by.xpath('/html/body/app-root/div/div[2]/app-goods/div[2]/table/tbody/tr[1]/td[2]/img'));
+  }
 
-  async srcInDetails() {
+  async srcImgInDetails() {
     var srcInDetailsatr = JSON.stringify(await this.getImgOfDetailsComponent().getAttribute('src'));
-    console.log("srcInDetails " + JSON.stringify(srcInDetailsatr));
     return srcInDetailsatr;
+  }
+  getImgOfDetailsComponent() {
+    return element(by.xpath('/html/body/app-root/div/div[3]/app-details/div[2]/div[1]/img'));
+  }
+
+  async srcNameInDetails() {
+    var srcNameInDetailsatr = JSON.stringify(await this.getNameOfDetailsComponent().getAttribute('value'));
+    return srcNameInDetailsatr;
+  }
+  getNameOfDetailsComponent() {
+    return element(by.xpath('//*[@id="mat-input-0"]'));
   }
 
   getTr1Td3InTableData() {
     return element(by.xpath('/html/body/app-root/div/div[2]/app-goods/div[2]/table/tbody/tr[1]/td[3]'));
   }
-
-  getImgOfTr1Td2InTableData() {
-    return element(by.xpath('/html/body/app-root/div/div[2]/app-goods/div[2]/table/tbody/tr[1]/td[2]/img'));
-  }
-
-  getImgOfDetailsComponent() {
-    return element(by.xpath('/html/body/app-root/div/div[3]/app-details/div[2]/div[1]/img'));
-  }
-
 
   isTableDataInTablePresent(): promise.Promise<boolean> {
     return element(by.xpath('/html/body/app-root/div/div[2]/app-goods/div[2]/table/tbody/tr[1]/td[3]')).isPresent();
