@@ -1,6 +1,5 @@
 import { AppPage } from './app.po';
 import { browser } from 'protractor';
-import { fakeAsync, tick, async } from '@angular/core/testing';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -9,7 +8,7 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display text on first tree node', () => {
+  xit('should display text on first tree node', () => {
     page.navigateTo();
     expect(page.getNode1OfTree().getText()).toEqual('Одежда, обувь, аксессуары');
   });
@@ -40,24 +39,19 @@ describe('workspace-project App', () => {
     expect(page.getTr1Td3InTableData().getText()).toEqual('Coat transparent');
   });
 
-  it('should see in details image equal to clicked in table data', async() => {
+  it('should see in details image equal to clicked in table data', async () => {
 
     await page.navigateTo();
-    //browser.debugger(); //NOT WORK!!???
-    debugger;
+    //debugger;
     await page.openTree();
 
     expect(await page.isTableDataInTablePresent()).toBeTruthy();
 
+    expect(await page.getTr1Td3InTableData().getText()).toEqual('Coat Blue');
     await page.getImgOfTr1Td2InTableData().click();
 
-    var srcTd = await page.getImgOfTr1Td2InTableData()[0].src;
-    console.log("srcTd " + srcTd);
+    expect(await page.srcTableData()).toEqual(await page.srcInDetails());
 
-    var srcInDetails = await page.getImgOfDetailsComponent()[0].src;
-    console.log("srcInDetails " + srcInDetails);
-
-    expect(this.srcTd).toEqual(this.srcInDetails);
   });
 
 

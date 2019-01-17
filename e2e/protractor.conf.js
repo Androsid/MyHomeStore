@@ -20,7 +20,17 @@ exports.config = {
   baseUrl: 'http://localhost:4200/',
   SELENIUM_PROMISE_MANAGER: false, //when you're using async and await, disable the now-deprecated Selenium promise manager
   getPageTimeout: 100000, //pass a longer debug time
-  framework: 'jasmine',
+  framework: 'jasmine2',
+  plugins: [{
+    package: 'protractor-screenshoter-plugin',
+    screenshotPath: './REPORTS/e2e',
+    screenshotOnExpect: 'failure+success',
+    screenshotOnSpec: 'none',
+    withLogs: true,
+    writeReportFreq: 'asap',
+    imageToAscii: 'none',
+    clearFoldersBeforeTest: true
+  }],
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
@@ -31,5 +41,9 @@ exports.config = {
       project: require('path').join(__dirname, './tsconfig.e2e.json')
     });
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
+
+    return global.browser.getProcessedConfig().then(function(config) {
+      //it is ok to be empty
+  });
   }
 };

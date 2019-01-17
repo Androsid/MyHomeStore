@@ -9,8 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TreeComponent } from './catalog/tree/tree.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './api/in-memory-data-service';
 import { SimulateDbService } from './simulate-db.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

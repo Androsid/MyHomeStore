@@ -50,7 +50,7 @@
       "Qty": 12
     },
     {
-      "name": "name2",
+      "name": "name1",
       "price": "12",
       "categoryId": "1",
       "Qty": "3",
@@ -184,6 +184,38 @@
       "Qty": "1",
       "url": "uploads/uploads-1546427911008..jpg",
       "id": 40
+    }
+  ],
+  "todos": [
+    {
+      "title": "Купить обувь, аксессуары",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "completed": false,
+      "title": "learn MobX",
+      "id": 5
+    },
+    {
+      "completed": false,
+      "title": "learn Angular",
+      "id": 6
+    },
+    {
+      "completed": false,
+      "title": "fds",
+      "id": 7
+    },
+    {
+      "completed": false,
+      "title": "dfdgh",
+      "id": 8
+    },
+    {
+      "completed": false,
+      "title": "Съесть пончик",
+      "id": 9
     }
   ]
 }
