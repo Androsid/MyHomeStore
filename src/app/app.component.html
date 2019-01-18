@@ -1,15 +1,15 @@
-<div style="display: flex; height: 100%;">
-  <div style="width:30%;">
+<div class="main">
+  <div class="catalog">
     <app-catalog 
     (clickCategoryName)="onAClicked($event)" 
     (clickCategoryId)="onAClickedCategoryId($event)"
     (eventUpdateTableFromCatalog)="goodsComponent.loadPage($event)"
     ></app-catalog>
   </div>
-  <div style="width:30%;">
+  <div class="goods">
     <app-goods #goodsComponent [categoryName]="categoryName" [categoryId]="categoryId" (goodFromGoodsComponent)="onAClickedgoodFromGoodsComponent($event)"></app-goods>
   </div>
-  <div style="width:30%;">
+  <div class="details">
     <app-details (eventUpdateTableFromDetails)="goodsComponent.loadPage()" [categoryId]="categoryId" [goodFromGoodsComponent]="goodFromGoodsComponent"></app-details>
   </div>
 </div>

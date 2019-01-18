@@ -1,0 +1,24 @@
+div.main{
+    display: flex;
+    height: 100%;
+}
+
+div.catalog{
+    width:30%;
+}
+
+div.goods{
+    width:30%;
+}
+
+div.details{
+    width:30%;
+}
+
+@media only screen and (max-width: 1200px) {
+    /* For desktop: */
+    div.main {flex-direction: column;}
+    div.catalog{width:100%;}
+    div.goods{width:100%;}
+    div.details{width:100%;}
+  }
