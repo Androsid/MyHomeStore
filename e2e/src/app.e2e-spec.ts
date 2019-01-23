@@ -9,14 +9,14 @@ describe('myHomeStore', () => {
     page = new AppPage();
   });
 
-  it('should display text on first tree node', async () => {
+  xit('should display text on first tree node', async () => {
 
     await page.navigateTo();
 
     expect(await page.getNode1OfTree().getText()).toEqual('Одежда, обувь, аксессуары');
   });
 
-  it('should open category tree and see loaded good in the table', async () => {
+  xit('should open category tree and see loaded good in the table', async () => {
 
     await page.navigateTo();
     await page.openTree();
@@ -25,7 +25,7 @@ describe('myHomeStore', () => {
     expect(await page.getTr1Td3InTableData().getText()).toEqual('Coat Blue');
   });
 
-  it('should not see good in the table after change active category in tree', async () => {
+  xit('should not see good in the table after change active category in tree', async () => {
 
     await page.navigateTo();
     await page.openTree();
@@ -34,7 +34,7 @@ describe('myHomeStore', () => {
     expect(await page.isTableDataInTablePresent()).toBeFalsy();
   });
 
-  it('should see good in the table after change page', async () => {
+  xit('should see good in the table after change page', async () => {
 
     await page.navigateTo();
     await page.openTree();
@@ -48,7 +48,7 @@ describe('myHomeStore', () => {
   it('should see in details image equal to clicked in table data', async () => {
 
     await page.navigateTo();
-    //debugger;
+    debugger;
     await page.openTree();
 
     expect(await page.isTableDataInTablePresent()).toBeTruthy();

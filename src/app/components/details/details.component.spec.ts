@@ -7,8 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimulateDbService } from '../simulate-db.service';
-import { UploadImageService } from '../shared/upload-image.service';
+import { DbService } from '../../services/db.service';
+import { UploadImageService } from '../../services/upload-image.service';
 import { GoodsComponent } from '../goods/goods.component';
 
 describe('DetailsComponent', () => {
@@ -27,7 +27,7 @@ describe('DetailsComponent', () => {
         MatInputModule,
         MatFormFieldModule
       ],
-      providers: [SimulateDbService, UploadImageService] 
+      providers: [DbService, UploadImageService] 
     })
     .compileComponents();
   }));

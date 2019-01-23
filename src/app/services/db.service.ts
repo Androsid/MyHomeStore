@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
-import { TablePage } from './tablePage';
-import { Goods } from './goods/goods';
+import { TablePage } from '../models/tablePage';
+import { Goods } from '../models/goods';
 
 @Injectable()
-export class SimulateDbService {
+export class DbService {
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  //private simDbsUrl = "api/simDb"; - fake. simulate
   private simDbsUrl = "http://localhost:3001/events/";
 
   public getCategories(page: number, itemsPerPage: number, categoryId: number): Observable<TablePage>{

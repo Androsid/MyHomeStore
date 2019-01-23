@@ -1,15 +1,16 @@
 <div class="main">
   <div class="catalog">
     <app-catalog 
-    (clickCategoryName)="onAClicked($event)" 
-    (clickCategoryId)="onAClickedCategoryId($event)"
-    (eventUpdateTableFromCatalog)="goodsComponent.loadPage($event)"
+    (eventUpdateTableFromCatalog)="goodsComponent.onPageChanged($event)"
     ></app-catalog>
   </div>
   <div class="goods">
-    <app-goods #goodsComponent [categoryName]="categoryName" [categoryId]="categoryId" (goodFromGoodsComponent)="onAClickedgoodFromGoodsComponent($event)"></app-goods>
+    <app-goods #goodsComponent 
+     (goodFromGoodsComponent)="onAClickedgoodFromGoodsComponent($event)"></app-goods>
   </div>
   <div class="details">
-    <app-details (eventUpdateTableFromDetails)="goodsComponent.loadPage()" [categoryId]="categoryId" [goodFromGoodsComponent]="goodFromGoodsComponent"></app-details>
+    <app-details 
+    (eventUpdateTableFromCatalog)="goodsComponent.onPageChanged($event)"
+     [goodFromGoodsComponent]="goodFromGoodsComponent"></app-details>
   </div>
 </div>

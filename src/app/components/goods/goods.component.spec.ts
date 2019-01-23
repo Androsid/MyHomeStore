@@ -7,8 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MatProgressSpinnerModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimulateDbService } from '../simulate-db.service';
-import { UploadImageService } from '../shared/upload-image.service';
+import { DbService } from '../../services/db.service';
+import { UploadImageService } from '../../services/upload-image.service';
 
 describe('GoodsComponent', () => {
   let component: GoodsComponent;
@@ -28,7 +28,7 @@ describe('GoodsComponent', () => {
         MatInputModule,
         MatFormFieldModule
       ],
-      providers: [SimulateDbService, UploadImageService]
+      providers: [DbService, UploadImageService]
     })
     .compileComponents();
   }));

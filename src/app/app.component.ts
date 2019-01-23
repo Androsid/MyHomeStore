@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Goods } from './goods/goods';
+import { Goods } from './models/goods';
 
 @Component({
   selector: 'app-root',
@@ -19,18 +19,8 @@ export class AppComponent {
     id: null
   };
 
-  public onAClicked(categoryName){
-    console.log(categoryName);
-    this.categoryName = categoryName;
-  }
-
-  public onAClickedCategoryId(categoryId){
-    console.log(categoryId);
-    this.categoryId = categoryId;
-  }
-
   onAClickedgoodFromGoodsComponent(goodFromGoodsComponent){
-    console.log("onAClickedCategoryId " + goodFromGoodsComponent);
+    console.log("onAClickedCategoryId ");
     this.goodFromGoodsComponent = goodFromGoodsComponent;
   }
 }

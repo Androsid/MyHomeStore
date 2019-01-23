@@ -8,21 +8,21 @@ describe('My First Test', function () {
             .contains('Одежда, обувь, аксессуары');
     });
 
-    it.skip('should open category tree and see loaded good in the table', function () {
+    it('should open category tree and see loaded good in the table', function () {
         cy.openTree();
 
         cy.get('tbody > :nth-child(1) > :nth-child(3)').contains('Coat Blue');
     });
 
-    it.skip('should not see good in the table after change active category in tree', function () {
+    it('should not see good in the table after change active category in tree', function () {
         cy.openTree();
         cy.get('tbody > :nth-child(1) > :nth-child(3)').contains('Coat Blue');
-
+        cy.pause();
         cy.get('[for="node2 Верхняя"]').click();
         cy.get('tbody > :nth-child(1)').should('not.exist');
     });
 
-    it.skip('should see good in the table after change page', function () {
+    it('should see good in the table after change page', function () {
         cy.openTree();
         //cy.get('tbody > :nth-child(1) > :nth-child(3)').contains('Coat Blue');
 

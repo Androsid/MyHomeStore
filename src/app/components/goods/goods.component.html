@@ -1,5 +1,5 @@
 <div style="height: 100px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <div>Category {{categoryName}} {{categoryId}}</div>
+    <div>Category {{_goodsStore.categoryName}} {{_goodsStore.filter}}</div>
     <button class="btn btn-labeled btn-success" (click)="newGood()">New</button>
 </div>
 
@@ -13,7 +13,7 @@
             <th>Price:</th>
             <th>Qty:</th>
         </thead>
-        <tr *ngFor="let events of goods" (click)="editRow(events)">
+        <tr *ngFor="let events of goods | async" (click)="editRow(events)">
             <td>{{events.id}}</td>
             <td><img src="{{events.url}}" style="height:75px;"></td>
             <td>{{events.name}}</td>

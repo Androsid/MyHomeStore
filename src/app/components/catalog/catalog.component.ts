@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { treesConst } from './tree/tree-data';
+import { GoodsStore } from 'src/app/store/app.store';
 
 @Component({
   selector: 'app-catalog',
@@ -8,20 +9,20 @@ import { treesConst } from './tree/tree-data';
 })
 export class CatalogComponent {
 
+  constructor(private _goodsStore: GoodsStore) {
+  }
 
   treesData = treesConst;
 
   categoryName:string = "";
   categoryId:number = 0;
-  @Output() clickCategoryName: EventEmitter<string> = new EventEmitter();
-  @Output() clickCategoryId: EventEmitter<number> = new EventEmitter();
+
   @Output() eventUpdateTableFromCatalog = new EventEmitter();
 
   public clickMe(categoryName, categoryId){
-    this.categoryName = categoryName;
-    this.categoryId = categoryId;
-    this.clickCategoryName.emit(this.categoryName);
-    this.clickCategoryId.emit(this.categoryId);
+    
+    this._goodsStore.filter = categoryId;
+    this._goodsStore.categoryName = categoryName;
     
     setTimeout(() => {
       this.eventUpdateTableFromCatalog.emit(null)

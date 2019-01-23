@@ -18,7 +18,7 @@ app.use(function (req, res, next) {
 var storage = multer.diskStorage({
     // destination of the file
     destination: function (req, file, cb) {
-        cb(null, 'uploads');
+        cb(null, 'src/uploads');
     },
     // rename file
     filename: function (req, file, cb) {

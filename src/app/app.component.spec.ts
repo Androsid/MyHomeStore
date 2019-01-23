@@ -1,17 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { CatalogComponent } from './catalog/catalog.component';
-import { DetailsComponent } from './details/details.component';
-import { GoodsComponent } from './goods/goods.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { DetailsComponent } from './components/details/details.component';
+import { GoodsComponent } from './components/goods/goods.component';
 import { MatFormFieldModule, MatInputModule, MatProgressSpinnerModule } from '@angular/material';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimulateDbService } from './simulate-db.service';
-import { UploadImageService } from './shared/upload-image.service';
-import { TreeComponent } from './catalog/tree/tree.component';
+import { DbService } from './services/db.service';
+import { UploadImageService } from './services/upload-image.service';
+import { TreeComponent } from './components/catalog/tree/tree.component';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -33,7 +33,7 @@ describe('AppComponent', () => {
         MatInputModule,
         MatFormFieldModule
       ],
-      providers: [SimulateDbService, UploadImageService]
+      providers: [DbService, UploadImageService]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

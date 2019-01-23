@@ -1,10 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { SimulateDbService } from '../simulate-db.service';
-import { Goods } from '../goods/goods';
+import { Goods } from '../../models/goods';
 import { FormControl, Validators } from '@angular/forms'; // need to import ReactiveFormsModule
 import { HttpClient } from '@angular/common/http';
-import { UploadImageService } from '../shared/upload-image.service';
-import { map } from 'rxjs/operators';
+import { UploadImageService } from '../../services/upload-image.service';
+import { GoodsStore, Good } from 'src/app/store/app.store';
+import { Observable } from 'rxjs';
+import { fromMobx } from 'ngx-mobx';
 
 @Component({
   selector: 'app-details',
@@ -16,17 +17,15 @@ export class DetailsComponent implements OnInit {
 
   @Output() eventUpdateTableFromDetails = new EventEmitter();
 
-  @Input() categoryId: number;
-
   @Input() goodFromGoodsComponent: Goods;
 
-  //imageUrl: string = "/assets/images/placeholder-image.png";
   imageUploaded: boolean;
 
-  public goods: Goods[];
+  goods: Observable<Good>;
   public simDbsUrl: Array<any>;
 
-  constructor(private simulateDbService: SimulateDbService,
+  constructor(
+    private _goodsStore: GoodsStore,
     private http: HttpClient,
     private imageService: UploadImageService) {
     console.log("DetailsComponent constructor");
@@ -34,10 +33,9 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getGoods();
+    this.goods = fromMobx(() => this._goodsStore.filtForPaginStoreGoods);
   }
   Qty = new FormControl('', [Validators.required]);
-
 
   newgood: Goods = {
     name: "xz",
@@ -54,9 +52,10 @@ export class DetailsComponent implements OnInit {
     this.newgood.categoryId = goodCategoryId;
     this.newgood.Qty = goodQty;
     console.log(this.newgood);
-    this.simulateDbService.addGood(this.newgood)
-      .subscribe(good => this.goods.push(good));
-
+    this._goodsStore.addGood(this.newgood);
+    setTimeout(()=>{
+      this._goodsStore.fetch();
+    },500);
     this.eventUpdateTableFromDetails.emit(null);
   }
 
@@ -76,15 +75,11 @@ export class DetailsComponent implements OnInit {
     updatedgood.url = this.goodFromGoodsComponent.url;
     updatedgood.id = this.goodFromGoodsComponent.id;
     console.log(updatedgood);
-    this.simulateDbService.updateGood(updatedgood)
-      .subscribe();
-
+    this._goodsStore.updateGood(updatedgood);
+    setTimeout(()=>{
+      this._goodsStore.fetch();
+    },500);
     this.eventUpdateTableFromDetails.emit(null);
-  }
-
-  getGoods(): void {
-    this.simulateDbService.getGoods()
-      .subscribe(good => this.goods = good);
   }
 
   filesToUpload: File = null;
@@ -98,18 +93,16 @@ export class DetailsComponent implements OnInit {
       .subscribe(files => {
         console.log('files ', files);
         this.newgood.url = 'uploads/' + files[0].filename; //вот тут присваиваем путь к картинке
-        //this.newgood.url = files[0].path; //вот тут присваиваем путь к картинке
         this.imageUploaded = true;
       })
   }
 
   fileChangeEvent(fileInput: any) {
     this.filesToUpload = fileInput.target.files;
-
+    
     //Show image preview
     var reader = new FileReader();
     reader.onload = (event: any) => {
-      //this.imageUrl
       this.goodFromGoodsComponent.url = event.target.result;
     }
     reader.readAsDataURL(fileInput.target.files.item(0));
